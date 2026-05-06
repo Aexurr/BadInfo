@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BadInfo</title>
+
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="/styles.css">
+
+  <script type="module" src="./main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<input type="checkbox" id="sidebar-toggle">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-user">
+    <img id="profile-icon" src="https://raw.communitydragon.org/16.9/game/assets/ux/summonericons/profileicon29.png">
+    <div>
+      <h2 id="summoner-display">Summoner Name#Tagline</h2>
+      <h3 id="summoner-level">Level ---</h3>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h4 class="sidebar-label">Rank</h4>
+    <div id="sidebar-rank" class="sidebar-rank">—</div>
+  </div>
+
+  <div class="sidebar-section">
+    <h4 class="sidebar-label">Most Played</h4>
+    <div id="sidebar-most-played" class="sidebar-most-played">—</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main-content">
+
+  <header class="header">
+    <label for="sidebar-toggle" class="menu-toggle">
+      <span class="las la-bars"></span>
+    </label>
+
+    <div class="search-bar">
+      <input id="summoner-name" placeholder="Summoner name">
+      <input id="tag-line" placeholder="Tag (EUW)">
+      <button id="load-btn">Search</button>
+    </div>
+
+    <!-- Summoner name + update button shown top-right after search -->
+    <div class="header-summoner" id="header-summoner">
+      <span id="header-summoner-name"></span>
+      <button id="update-btn" class="update-btn" title="Refresh data">
+        <span class="las la-sync-alt"></span> Update
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="page-header">
+      <div>
+        <h1>BadInfo Dashboard</h1>
+        <small>See your match history and statistics</small>
+      </div>
+    </section>
+
+    <section class="grid">
+
+      <!-- CHART + MASTERY side by side -->
+      <div class="stats-row">
+
+        <div class="card">
+          <h3>Winrate (last 20 games)</h3>
+          <div class="chart-container">
+            <canvas id="winrate-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="card mastery-card">
+          <h3>Champion Mastery</h3>
+          <div id="mastery-list" class="mastery-list">—</div>
+        </div>
+
+      </div>
+
+      <!-- RECENTLY PLAYED WITH -->
+      <div class="card">
+        <h3>Recently Played With</h3>
+        <div id="recent-friends" class="recent-friends-list">—</div>
+      </div>
+
+      <!-- MATCH HISTORY -->
+      <div class="card">
+        <h3>Game History</h3>
+        <div id="match-history" class="match-list"></div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+</html>
